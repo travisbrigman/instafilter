@@ -14,6 +14,7 @@ import CoreImage.CIFilterBuiltins
 struct ContentView: View {
     @State private var image: Image?
     @State private var filterIntensity = 0.5
+    @State private var filterRadius = 10.0
     @State private var showingFilterSheet = false
     @State private var showingImagePicker = false
     @State private var showSaveImageAlert = false
@@ -32,6 +33,16 @@ struct ContentView: View {
         },
             set: {
                 self.filterIntensity = $0
+                self.applyProcessing()
+        }
+        )
+        
+        let radius = Binding<Double>(
+            get: {
+                self.filterRadius
+        },
+            set: {
+                self.filterRadius = $0
                 self.applyProcessing()
         }
         )
@@ -59,6 +70,11 @@ struct ContentView: View {
                 HStack {
                     Text("Intensity")
                     Slider(value: intensity)
+                }
+                .padding(.vertical)
+                HStack {
+                    Text("radius")
+                    Slider(value: radius)
                 }
                 .padding(.vertical)
                 
@@ -139,7 +155,7 @@ struct ContentView: View {
         }
         
         if inputKeys.contains(kCIInputRadiusKey) {
-            currentFilter.setValue(filterIntensity * 200, forKey: kCIInputRadiusKey)
+            currentFilter.setValue(filterRadius * 200, forKey: kCIInputRadiusKey)
         }
         
         if inputKeys.contains(kCIInputScaleKey) {
