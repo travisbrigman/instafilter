@@ -16,6 +16,7 @@ struct ContentView: View {
     @State private var filterIntensity = 0.5
     @State private var showingFilterSheet = false
     @State private var showingImagePicker = false
+    @State private var showSaveImageAlert = false
     @State private var inputImage: UIImage?
     @State var currentFilter: CIFilter = CIFilter.sepiaTone()
     @State private var processedImage: UIImage?
@@ -59,14 +60,19 @@ struct ContentView: View {
                 .padding(.vertical)
                 
                 HStack {
-                    Button("Change Filter") {
+                    Button("\(currentFilter.name)") {
                         self.showingFilterSheet = true
                     }
                     
                     Spacer()
                     Button("Save the Picture") {
-                        guard let processedImage = self.processedImage else { return }
+    
+                        guard let processedImage = self.processedImage else {
+                            self.showSaveImageAlert = true
+                            return }
+                        
                         let imageSaver = ImageSaver()
+                        
                         
                         imageSaver.successHandler = {
                             print("success")
@@ -109,6 +115,9 @@ struct ContentView: View {
                     },
                     .cancel()
                 ])
+            }
+            .alert(isPresented: $showSaveImageAlert) {
+                Alert(title: Text("Error Saving Image"), message: Text("try something else"), dismissButton: .default(Text("OK")))
             }
         }
     }
