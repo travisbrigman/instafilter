@@ -20,6 +20,9 @@ struct ContentView: View {
     @State private var inputImage: UIImage?
     @State var currentFilter: CIFilter = CIFilter.sepiaTone()
     @State private var processedImage: UIImage?
+    @State private var filterName: String = "CISepiaTone"
+
+
     let context = CIContext()
     
     var body: some View {
@@ -60,7 +63,7 @@ struct ContentView: View {
                 .padding(.vertical)
                 
                 HStack {
-                    Button("\(currentFilter.name)") {
+                    Button("\(filterNameParser(filter: filterName))") {
                         self.showingFilterSheet = true
                     }
                     
@@ -125,6 +128,7 @@ struct ContentView: View {
         guard let inputImage = inputImage else { return }
         let beginImage = CIImage(image: inputImage)
         currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
+        self.filterName = currentFilter.name
         applyProcessing()
     }
     
@@ -153,7 +157,16 @@ struct ContentView: View {
     
     func setFilter(_ filter: CIFilter) {
         currentFilter = filter
+        self.filterName = currentFilter.name
         loadImage()
+    }
+    
+    func filterNameParser(filter name: String) -> String {
+        var parsedName = name
+
+        parsedName.removeSubrange(parsedName.startIndex...parsedName.index(after: parsedName.startIndex))
+        
+        return parsedName.titleCase()
     }
 }
 

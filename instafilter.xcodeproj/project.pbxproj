@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F92124825E8942D0020DD46 /* CaseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F92124725E8942D0020DD46 /* CaseParser.swift */; };
 		0F9249B225E6922B00D1E240 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9249B125E6922B00D1E240 /* AppDelegate.swift */; };
 		0F9249B425E6922B00D1E240 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9249B325E6922B00D1E240 /* SceneDelegate.swift */; };
 		0F9249B625E6922B00D1E240 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9249B525E6922B00D1E240 /* ContentView.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F92124725E8942D0020DD46 /* CaseParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseParser.swift; sourceTree = "<group>"; };
 		0F9249AE25E6922B00D1E240 /* instafilter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instafilter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F9249B125E6922B00D1E240 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0F9249B325E6922B00D1E240 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				0F9249BF25E6923100D1E240 /* Info.plist */,
 				0F9249B125E6922B00D1E240 /* AppDelegate.swift */,
 				0F9249B525E6922B00D1E240 /* ContentView.swift */,
+				0F92124725E8942D0020DD46 /* CaseParser.swift */,
 				0F9249D025E80E5B00D1E240 /* ImageSaver.swift */,
 				0F9249CE25E7E8AC00D1E240 /* ImagePicker.swift */,
 				0F9249B325E6922B00D1E240 /* SceneDelegate.swift */,
@@ -172,6 +175,7 @@
 				0F9249B225E6922B00D1E240 /* AppDelegate.swift in Sources */,
 				0F9249C625E69D8900D1E240 /* ImagePickerExample.swift in Sources */,
 				0F9249B425E6922B00D1E240 /* SceneDelegate.swift in Sources */,
+				0F92124825E8942D0020DD46 /* CaseParser.swift in Sources */,
 				0F9249CF25E7E8AC00D1E240 /* ImagePicker.swift in Sources */,
 				0F9249B625E6922B00D1E240 /* ContentView.swift in Sources */,
 				0F9249CB25E6E97400D1E240 /* ImagePickerView.swift in Sources */,
